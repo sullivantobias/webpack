@@ -90,11 +90,11 @@
 /*!**********************!*\
   !*** ./src/hello.js ***!
   \**********************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\nfunction hello (v) {\n    return 'Hey '+v;\n}\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (hello);\n\n//# sourceURL=webpack:///./src/hello.js?");
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n    value: true\n});\nfunction hello(v) {\n    return 'Hey ' + v;\n}\n\nexports.default = hello;\n\n//# sourceURL=webpack:///./src/hello.js?");
 
 /***/ }),
 
@@ -102,11 +102,11 @@ eval("__webpack_require__.r(__webpack_exports__);\nfunction hello (v) {\n    ret
 /*!**********************!*\
   !*** ./src/index.js ***!
   \**********************/
-/*! no exports provided */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _hello__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./hello */ \"./src/hello.js\");\n\n\nconsole.log(Object(_hello__WEBPACK_IMPORTED_MODULE_0__[\"default\"])('Walmart'))\n\n\n\n//# sourceURL=webpack:///./src/index.js?");
+eval("\n\nvar _hello = __webpack_require__(/*! ./hello */ \"./src/hello.js\");\n\nvar _hello2 = _interopRequireDefault(_hello);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nvar test = 'salut';\n\nvar _ref = [1, 2, 3, 4, 5],\n    b = _ref[0],\n    c = _ref[2];\n\nconsole.log(b);\n\nconsole.log((0, _hello2.default)('Walmart'));\n\n//# sourceURL=webpack:///./src/index.js?");
 
 /***/ })
 
