@@ -1,21 +1,25 @@
 const path = require("path");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const ManifestPlugin = require("webpack-manifest-plugin");
+const CleanWebpackPlugin = require ("clean-webpack-plugin");
 const dev = process.env.NODE_ENV === "dev";
 const prod = process.env.NODE_ENV === "prod";
 
 let cssLoader = [
   {
     loader: "css-loader",
-    options: { importLoaders: 1, minimize: prod}
+    options: { importLoaders: 1, minimize: prod }
   }
 ];
 
-module.exports = {
-  entry: "./src/index.js",
-  watch: true,
+let config = {
+  entry: {
+    app: ["./css/app.scss", "./src/index.js"]
+  },
+  watch: dev,
   output: {
     path: path.resolve("./dist"),
-    filename: "main.js"
+    filename: dev ? "main.js" : "main.[chunkhash:8].js"
   },
   module: {
     rules: [
@@ -54,8 +58,21 @@ module.exports = {
   },
   plugins: [
     new ExtractTextPlugin({
-      filename: "[name].css",
+      filename: dev ? "[name].css" : "[name].[hash:8].css",
       disable: dev
     })
   ]
 };
+
+if (!dev) {
+  config.plugins.push(new ManifestPlugin());
+  config.plugins.push(
+    new CleanWebpackPlugin(["dist"], {
+      root: path.resolve("./"),
+      verbose: true,
+      dry: false
+    })
+  );
+}
+
+module.exports = config;

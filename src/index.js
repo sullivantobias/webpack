@@ -1,5 +1,4 @@
 import hello from './hello'
-import css from './app.scss'
 
 
 
