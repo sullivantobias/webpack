@@ -1,13 +1,19 @@
-import hello from './hello'
-import css from './app.scss'
+import _ from "lodash";
+import printMe from "./print.js";
 
 
+function component() {
+  var element = document.createElement("div");
+  var btn = document.createElement('button');
 
-let test = 'salut';
+  element.innerHTML = _.join(["Hello", "webpack"], " ");
 
-let [b,,c] = [1,2,3,4,5]
-console.log(b);
-console.log(css);
-console.log(hello('Walmart'))
+  btn.innerHTML = "Click me and check the console!";
+  btn.onclick = printMe;
 
+  element.appendChild(btn);
 
+  return element;
+}
+
+document.body.appendChild(component());

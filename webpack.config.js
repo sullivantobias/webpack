@@ -1,41 +1,20 @@
 const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
-  entry: "./src/index.js",
-  watch: true,
-  output: {
-    path: path.resolve("./dist"),
-    filename: "main.js"
+  entry: {
+    app: "./src/index.js",
+    print: "./src/print.js"
   },
-  module: {
-    rules: [
-      {
-        test: /\.js$/,
-        exclude: /(node_modules|bower_components)/,
-        use: ["babel-loader"]
-      },
-      {
-        test: /\.css$/,
-        use: ["style-loader", "css-loader"]
-      },
-      {
-        test: /\.scss$/,
-        use: [
-          "style-loader",
-          { loader: "css-loader", options: { importLoaders: 1 } },
-          {
-            loader: "postcss-loader",
-            options: {
-              plugins: loader => [
-                require("autoprefixer")({
-                  browsers: ["last 2 versions", "ie > 8"]
-                })
-              ]
-            }
-          },
-          "sass-loader"
-        ]
-      }
-    ]
+  plugins: [
+    new CleanWebpackPlugin(['dist']),
+    new HtmlWebpackPlugin({
+      title: "Output Management"
+    })
+  ],
+  output: {
+    filename: "[name].bundle.js",
+    path: path.resolve(__dirname, "dist")
   }
 };
