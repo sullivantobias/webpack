@@ -1,32 +1,20 @@
 {
-  "name": "WebPackTest",
+  "name": "webpacktest",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "prod": "webpack --mode=production",
-    "dev": "webpack --mode=development"
+    "build": "webpack"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "autoprefixer": "^8.6.0",
-    "babel-core": "^6.26.3",
-    "babel-loader": "^7.1.4",
-    "babel-preset-env": "^1.7.0",
-    "clean-webpack-plugin": "^0.1.19",
-    "css-loader": "^0.28.11",
-    "extract-text-webpack-plugin": "^4.0.0-beta.0",
-    "node-sass": "^4.9.0",
-    "sass-loader": "^7.0.3",
-    "style-loader": "^0.21.0",
-    "webpack": "^4.11.1",
-    "webpack-cli": "^3.0.2",
-    "webpack-manifest-plugin": "^2.0.3"
+    "webpack": "^4.12.0",
+    "webpack-cli": "^3.0.3"
   },
   "dependencies": {
-    "postcss-loader": "^2.1.5"
+    "lodash": "^4.17.10"
   }
 }

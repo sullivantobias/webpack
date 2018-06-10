@@ -1,12 +1,11 @@
-import hello from './hello'
+import _ from "lodash";
 
+function component() {
+  var element = document.createElement("div");
 
+  element.innerHTML = _.join(["Hello", "webpack"], " ");
 
-let test = 'salut';
+  return element;
+}
 
-let [b,,c] = [1,2,3,4,5]
-console.log(b);
-console.log(css);
-console.log(hello('Walmart'))
-
-
+document.body.appendChild(component());
