@@ -14,6 +14,11 @@ module.exports = merge(common, {
           test: /\.css$/,
           chunks: "all",
           enforce: true
+        },
+        manifest: {
+          name: "manifest",
+          test: /\.js$/,
+          chunks: "all"
         }
       }
     }
