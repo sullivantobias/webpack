@@ -1,10 +1,38 @@
 import "./styles.css";
 import _ from "lodash";
+import numRef from "./ref.json";
+
+// Ref
+
+const scc = document.createElement("div");
+let scc2 = document.createElement("div");
+scc.innerHTML = "BLABLABLA"
+console.log(scc, scc2)
+
+ function numToWord(num) {
+  return _.reduce(
+    numRef,
+    (accum, ref) => {
+      return ref.num === num ? ref.word : accum;
+    },
+    ""
+  );
+}
+
+ function wordToNum(word) {
+  return _.reduce(
+    numRef,
+    (accum, ref) => {
+      return ref.word === word && word.toLowerCase() ? ref.num : accum;
+    },
+    -1
+  );
+}
 
 function component() {
-  var element = document.createElement("div");
-  var button = document.createElement("button");
-  var br = document.createElement("br");
+  let element = document.createElement("div");
+  let button = document.createElement("button");
+  let br = document.createElement("br");
 
   button.innerHTML = "Click me and look at the console!";
   element.innerHTML = _.join(["Hello", "webpack"], " ");
@@ -13,8 +41,10 @@ function component() {
 
   // Note that because a network request is involved, some indication
   // of loading would need to be shown in a production-level site/app.
-  button.addEventListener('click', e => {
-    console.log('Clicked');
+  button.addEventListener("click", e => {
+    console.log("Clicked");
+
+    console.log(numToWord(3), wordToNum("Two"));
   });
 
   return element;

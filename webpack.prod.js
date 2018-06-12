@@ -6,6 +6,17 @@ const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = merge(common, {
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: /(node_modules|bower_components)/,
+        use: {
+          loader: "babel-loader"
+        }
+      }
+    ]
+  },
   optimization: {
     splitChunks: {
       cacheGroups: {
@@ -14,23 +25,15 @@ module.exports = merge(common, {
           test: /\.css$/,
           chunks: "all",
           enforce: true
-        },
-        manifest: {
-          name: "manifest",
-          test: /\.js$/,
-          chunks: "all"
         }
       }
     }
   },
-  devtool: "source-map",
   plugins: [
     new MiniCssExtractPlugin({
       filename: "[name].css"
     }),
-    new UglifyJSPlugin({
-      sourceMap: true
-    }),
+    new UglifyJSPlugin({}),
     new OptimizeCSSAssetsPlugin({}),
     new webpack.DefinePlugin({
       "process.env.NODE_ENV": JSON.stringify("production")

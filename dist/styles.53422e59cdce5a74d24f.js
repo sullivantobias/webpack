@@ -1,2 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[0],{6:function(o,n,s){(o.exports=s(5)(!1)).push([o.i,"body {\n    background: grey;\n}",""])},7:function(o,n,s){var i=s(6);"string"==typeof i&&(i=[[o.i,i,""]]);s(4)(i,{hmr:!0,transform:void 0,insertInto:void 0}),i.locals&&(o.exports=i.locals)}}]);
-//# sourceMappingURL=styles.53422e59cdce5a74d24f.js.map

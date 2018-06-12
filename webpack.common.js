@@ -5,7 +5,11 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   entry: {
-    app: "./src/index.js"
+    app: "./src/index.js",
+  },
+  output: {
+    filename: "[name].[chunkhash].js",
+    path: path.resolve(__dirname, "dist")
   },
   plugins: [
     new CleanWebpackPlugin(["dist"]),
@@ -13,10 +17,6 @@ module.exports = {
       title: "Caching"
     }),
   ],
-  output: {
-    filename: "[name].[chunkhash].js",
-    path: path.resolve(__dirname, "dist")
-  },
   module: {
     rules: [
       {
