@@ -2,6 +2,7 @@ import printMe from "./print.js";
 import "./styles.css";
 import { cube } from "./math.js";
 
+
 function component() {
   var element = document.createElement("pre");
   var btn = document.createElement("button");
